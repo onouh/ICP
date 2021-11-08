@@ -2,7 +2,7 @@
 - 👀 I’m interested in Apple software
 - 🌱 I’m currently learning C
 - 💞️ I’m looking to collaborate on iPhone applications 
-- 📫 How to reach me onouh@icloud.com
+- 📫 How to reach me onouh7@gmail.com
 
 
 <!---
