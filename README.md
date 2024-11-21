@@ -1,8 +1,8 @@
-- 👋 Hi, I’m @onouh
-- 👀 I’m interested in Apple software
-- 🌱 I’m currently learning C
-- 💞️ I’m looking to collaborate on iPhone applications 
-- 📫 How to reach me onouh7@gmail.com
+- Hi, I’m @onouh
+- I’m interested in software
+- I’m currently learning C++, Swift, Python and Html
+- I’m looking to collaborate on applications annd websites
+- How to reach me onouh7@gmail.com
 
 
 <!---
