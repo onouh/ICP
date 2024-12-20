@@ -8,12 +8,60 @@
 #include <iostream>
 #include <cmath>
 #include <math.h>
+#include <iomanip>
+#include <string>
+#include <cstring>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
-int isPrime (int x);
+struct Date {
+    int day;
+    int month;
+    int year;
+};
+
+struct Student {
+    string ID;
+    string Name;
+    Date DOB;
+    vector<double> grades;
+    double total;
+};
+
+struct Students {
+    vector<Student> students;
+};
+int numS = 0;
+
+
+/*inline*/ int isPrime (int x);
 double numFactorial (double a);
 void numInverter (int h);
+int smallestNum ();
+int frequencyNum ();
+void firstLetter ();
+void longestWord ();
+void Matrix ();
+int sumSquareMat ();
+void transposeMatrix ();
+void largestNumRow ();
+bool matrixSymmetry ();
+Date getDate ();
+Student input_student ();
+double calcTotal (Student student);
+void displayStudent ();
+Students input_students (int numS);
+double calcTotals (Students student, int i);
+void displayStudents ();
+int* IntergralDataSet (int* Data);
+int numOfVal = 0;
+int findMax (const int* data, int numOfVal);
+int my_strlen (const char* data);
+void reversed (char*  data, int n);
+
+
 
 int main(int argc, const char * argv[]) {
     // insert code here...
@@ -21,7 +69,7 @@ int main(int argc, const char * argv[]) {
     int x = 0 ;
     int y = 1 ;
     double z = x * y;
-    std:: cout << z << endl ;
+    cout << z << endl ;
     
      
     cout << "Please enter the first value" << endl ;
@@ -49,7 +97,39 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, World!\n";
     */
     
-    //Lab 01
+    // Lecture Practice
+    /*
+    const int numOfEmployees = 5;
+    double tax, salary[numOfEmployees] = {0};
+    for (int i = 1; i <= numOfEmployees; i++) {
+        cout << "enter your salary" << endl;
+        cin >> salary[i-1];
+        if (salary[i-1] > 6000) {
+            tax = 10;
+        } else if (salary[i-1] >= 4000) {
+            tax = 7;
+        } else {
+            tax = 5;
+        }
+    } */
+    /*
+    const int elements = 10;
+    int value[elements] = {0};
+    cout << "enter a value" << endl;
+    for (int i = 0; i < elements; i++) {
+        cin >> value[i];
+    }
+    cout << setw(25) << "Elements" << setw(25) << "Value" << setw(25) << "Histogram" << endl;
+    for (int i = 0; i < elements; i++) {
+        cout << setw(25) << i << setw(25) << value[i] << setw(25);
+        for (int k = 0; k < value[i]; k++) {
+            cout << '~';
+        }
+        cout << endl;
+    } */
+
+    
+    // Lab 01
     /*
     int a = 0, b = 0, c;
     cout << "Please enter the first value" << endl ;
@@ -81,7 +161,7 @@ int main(int argc, const char * argv[]) {
     cout << "Thank you" << endl;
     */
     
-    //Lab 02
+    // Lab 02
     /*
     double distance_ft = 0.0 ;
     double distance_m = 0.0 ;
@@ -142,7 +222,7 @@ int main(int argc, const char * argv[]) {
     cout << endl << temperature << " " << degree << endl ;
     */
     
-    //Lab 03
+    // Lab 03
     /*
     double l = 0, L = 0 ;
     cout << "please enter a value for your width and length" << endl ;
@@ -262,7 +342,6 @@ int main(int argc, const char * argv[]) {
         return 0;
     }
     */
-    
     /*
     int numGrades , i ;
     double stdntGrd ;
@@ -320,6 +399,7 @@ int main(int argc, const char * argv[]) {
         }
     }
     */
+    
     // Lab 04
     /*
     int x , i , n , count = 0 ;
@@ -393,6 +473,7 @@ int main(int argc, const char * argv[]) {
         }
     }
     */
+    
     //Assignment
     // a = p * ( 1 + n )^r
     /*
@@ -462,7 +543,8 @@ int main(int argc, const char * argv[]) {
     cout << x++ << endl;
     cout << x << endl;
     */
-    //Lab 05
+    
+    // Lab 05
     /*
     int x;
     cout << "please write a whole number" << endl ;
@@ -563,7 +645,7 @@ int main(int argc, const char * argv[]) {
         cout  << y[i] << endl;
     }
     */
-    
+    /*
     int x[10], y[10], i;
     for (i = 0; i < 10; i++) {
         cout << "please write a number" << endl;
@@ -576,7 +658,112 @@ int main(int argc, const char * argv[]) {
     }
     for (i = 0; i < 10; i++) {
         cout  << y[i] << endl;
-    }
+    } */
+    /*
+//    cout << time(0);
+//    unsigned seed;
+    cout << "Enter seed: ";
+    srand(time(0));  // seed random number generator
+
+    // loop 10 times
+    for (int counter = 1; counter <= 10; counter++)
+    {
+        // pick random number from 1 to 6 and output it
+        cout << setw(10) << (1 + rand() % 6);
+        // if counter divisible by 5, begin new line of output
+        if (counter % 5 == 0)
+            cout << endl;
+    } // end for */
+    /*
+    enum Status {
+        Lose,
+        Win,
+    };
+    Status game = Win;
+    
+    const int size = 5;
+    int a[size];
+     
+    :: z = 5; // see global scope
+    
+    char sentence[100];
+    cin.getline(sentence, 80, '\t');
+    char otherSentence[] = "Hello World ";
+//    strcpy(sentence, otherSentence);
+//    strcat(sentence, otherSentence);
+    cout << sentence;
+    */
+    
+    // Lab 07
+    /*
+    string input;
+    getline(cin, input);
+    long x = input.size();
+    int i = 0;
+    do {
+        if (i == 0) {
+            if (input[i] == ' ') {
+                continue;
+            } else if (input[i] != ' ') {
+                cout << input[i];
+            }
+        } else if (input[i] == ' ') {
+            cout << input[i+1];
+        }
+        i++;
+    } while (i < x);
+    cout << endl;
+    */
+    /*
+//    cout << smallestNum() << endl;
+//    cout << frequencyNum() << endl;
+//    firstLetter();
+//    longestWord();
+   */
+     
+    // Lab 08
+    /*
+//    Matrix();
+//    sumSquareMat();
+//    transposeMatrix();
+//    largestNumRow();
+//  cout  <<  matrixSymmetry();
+*/
+    
+    // Lab 09
+    /*
+//    for (int i = 0; i < numS; i++) {
+//        cout << "here" << endl;
+//        Students student = input_students();
+//        cout << "Here" << endl;
+//        for (int i = 0; i < student.students.size(); i++) {
+//            cout << "HERE" << endl;
+//            student.students[i].total = calcTotals(student, i);
+//            cout << "HEllo" << endl;
+//        }
+//        cout << "Student ID " << student.students[i].ID << "has a total grade " << student.students[i].total << endl;
+//    }
+    cout << "enter number of students" << endl;
+    cin >> numS;
+    displayStudents(); */
+    
+    // Lab 10
+    
+    /*
+    int Data[8];
+    int* ret = IntergralDataSet(Data);
+    cout << *ret << endl;
+    int max = findMax(ret, numOfVal);
+    cout << Data+max << endl << *(Data+max) << endl; // Data[max]
+    */
+    /*
+    char word[100];
+    cin.getline(word, 100, '\n');
+    cout << my_strlen(word) << endl;*/
+    
+    char word[100];
+    cin.getline(word, 100, '\n');
+    reversed (word, my_strlen(word));
     
     return 0;
 }
@@ -604,7 +791,6 @@ double numFactorial (double a) {
     return numFactorial ;
 }
 
-
 void numInverter (int h) {
     int i = 0, a = h, x ;
     for (i = 0; i <= a; i++) {
@@ -616,3 +802,443 @@ void numInverter (int h) {
         h /= 10;
     }
 }
+
+int smallestNum () {
+    const int size = 7;
+    int arrayOfnum[size];
+    int h = arrayOfnum[0];
+    for (int i = 0; i < size; i++) {
+        cout << "enter number " << (i+1) << endl;
+        cin >> arrayOfnum[i];
+        if (arrayOfnum[i] < h) {
+            h = arrayOfnum[i];
+        }
+    }
+    return h;
+}
+
+int frequencyNum () {
+    const int size = 8;
+    int arrayOfnum[size];
+    int frequency[size] = {0}, h = 0, value = 0;
+    while (h < size) {
+        cout << "enter a number" << endl;
+        cin >> arrayOfnum[h];
+        for (int j = 0; j < h; j++) {
+            if (arrayOfnum[h] == arrayOfnum[j]) {
+                frequency[h]++;
+            }
+        }
+        h++;
+    }
+    int l = 0;
+    for (int i = 0; i < size; i++) {
+        if (frequency[i] > l) {
+            l = frequency[i];
+            value = arrayOfnum[i];
+        }
+    }
+    cout << "the most frequent number is " << endl;
+    return value;
+}
+
+void firstLetter () {
+    string input;
+    getline(cin, input);
+    long x = input.size();
+    int i = 0;
+    do {
+        if (i == 0) {
+            if (input[i] == ' ') {
+                continue;
+            } else if (input[i] != ' ') {
+                cout << input[i];
+            }
+        } else if (input[i] == ' ') {
+            cout << input[i+1];
+        }
+        i++;
+    } while (i < x);
+    cout << endl;
+}
+
+void longestWord () {
+    string theBiggestword;
+    getline(cin,theBiggestword);
+    int z = 0, h = 0, u = 0;
+    for(int i = 0; i < theBiggestword.length(); i++)
+    {
+        if(theBiggestword[i] != ' ')
+        {
+            z++;
+        }
+        else if(theBiggestword[i] == ' ')
+        {
+            if(z > h) {
+                h = z;
+                u = i - h;
+            }
+           z = 0;
+        }
+    }
+    cout << "The number of letters are:" << h << endl;
+    cout<<"The biggest word is:";
+    for(int j = u; j < (h + u); j++) {
+        cout << theBiggestword[j];
+    }
+    cout << endl;
+    /*
+    cout << "enter a sentence" << endl;
+    string input;                                              // sentence to test the code "hi my name is Lightning"
+    getline (cin, input);
+    int counter = 0, index = 0, i = 0, j = 0, l = 0, s = 0, pos = 0, posInd;
+    while (i < input.size()) {
+        if (input[i] == ' ') {
+            s++;
+        }
+        i++;
+    }
+    cout << "there are " << s << " spaces in your sentence" << endl; // runs until here
+    for (int i = 0; i <= s; i++) {
+        if (input[index] == '\0') {
+            break;
+        }
+        if (input[index] == ' ') {
+            index++;
+        }
+        while (input[index] != ' ') {
+            counter++;
+            index++;
+        }
+        if (l < counter) {
+            l = counter;
+            pos = i;
+        }
+        
+    }
+    cout << "the longest word is at the space number " << pos << endl;
+    for (posInd = 0; j < pos; posInd++) {
+        while (input[posInd] != ' ') {
+            posInd++;
+        }
+        j++;
+    }
+    if (pos == 0) {
+        for (int i = 0; input[i] != ' '; i++) {
+            cout << input[i];
+        }
+    } else {
+        for (int i = posInd; input[i] != ' '; i++) {
+            cout << input[i];
+        }
+    }
+    */
+}
+
+void Matrix (/*int rows, int columns*/) {
+    const int rows = 10, columns = 10;
+    int Rows, Columns;
+    cout << "enter the number of rows ";
+    cin >> Rows;
+    cout << "enter the number of columns ";
+    cin >> Columns;
+    int array2D[rows][columns];
+    for (int r = 0; r < Rows; r++) {
+        for (int c = 0; c < Columns; c++) {
+            cin >> array2D[r][c];
+        }
+    }
+    for (int r = 0; r < Rows; r++) {
+        for (int c = 0; c < Columns; c++) {
+            cout << array2D[r][c];
+        }
+        cout << endl;
+    }
+}
+
+int sumSquareMat () {
+    const int Size = 10;
+    int size;
+    cout << "enter the size of the array ";
+    cin >> size;
+    int array2D[Size][Size];
+    for (int r = 0; r < size; r++) {
+        for (int c = 0; c < size; c++) {
+            cin >> array2D[r][c];
+        }
+    }
+    for (int r = 0; r < size; r++) {
+        for (int c = 0; c < size; c++) {
+            cout << array2D[r][c];
+        }
+        cout << endl;
+    }
+    int sum = 0;
+    for (int i = 0; i < size; i++) {
+        sum += array2D[i][i];
+    }
+    cout << sum << endl;
+    return sum;
+}
+
+void transposeMatrix () {
+    const int rows = 10, columns = 10;
+    int Rows, Columns;
+    cout << "enter the number of rows ";
+    cin >> Rows;
+    cout << "enter the number of columns ";
+    cin >> Columns;
+    int arrayOne[rows][columns], arrayTwo[columns][rows];
+    for (int r = 0; r < Rows; r++) {
+        for (int c = 0; c < Columns; c++) {
+            cin >> arrayOne[r][c];
+        }
+    }
+    for (int r = 0; r < Rows; r++) {
+        for (int c = 0; c < Columns; c++) {
+            cout << arrayOne[r][c];
+        }
+        cout << endl;
+    }
+    cout << endl;
+    for (int c = 0; c < Columns; c++) {
+        for (int r = 0; r < Rows; r++) {
+            arrayTwo[c][r] = arrayOne[r][c];
+        }
+    }
+    for (int r = 0; r < Rows; r++) {
+        for (int c = 0; c < Columns; c++) {
+            cout << arrayTwo[r][c];
+        }
+        cout << endl;
+    }
+}
+
+void largestNumRow () {
+    const int rows = 10, columns = 10;
+    int Rows, Columns;
+    cout << "enter the number of rows ";
+    cin >> Rows;
+    cout << "enter the number of columns ";
+    cin >> Columns;
+    int array[rows][columns];
+    for (int r = 0; r < Rows; r++) {
+        for (int c = 0; c < Columns; c++) {
+            cin >> array[r][c];
+        }
+    }
+    for (int r = 0; r < Rows; r++) {
+        for (int c = 0; c < Columns; c++) {
+            cout << array[r][c];
+        }
+        cout << endl;
+    }
+    for (int r = 0; r < Rows; r++) {
+        int l = 0;
+        for (int c = 0; c < Columns; c++) {
+            if (array[r][c] > l) {
+                l = array[r][c];
+            }
+        }
+        cout << l << endl;
+    }
+}
+
+bool matrixSymmetry () {
+    const int rows = 10, columns = 10;
+    int Rows, Columns;
+    cout << "enter the number of rows ";
+    cin >> Rows;
+    cout << "enter the number of columns ";
+    cin >> Columns;
+    int array[rows][columns];
+    for (int r = 0; r < Rows; r++) {
+        for (int c = 0; c < Columns; c++) {
+            cin >> array[r][c];
+        }
+    }
+    for (int r = 0; r < Rows; r++) {
+        for (int c = 0; c < Columns; c++) {
+            cout << array[r][c];
+        }
+        cout << endl;
+    }
+    bool symmetrical = false;
+    for (int r = 0; r < Rows; r++) {
+        for (int c = 0; c < Columns; c++) {
+            if (array[r][c] == array[c][r]) {
+                symmetrical = true;
+            }
+            else {
+                symmetrical = false;
+            }
+        }
+    }
+    return symmetrical;
+}
+
+Date getDate () {
+    Date today;
+    cout << "enter day" << endl;
+    cin >> today.day;
+    cout << "enter month" << endl;
+    cin >> today.month;
+    cout << "enter year" << endl;
+    cin >> today.year;
+    cout << "the date you entered is: " << today.day << "/" << today.month << "/" << today.year << endl;
+    return today;
+}
+
+Student input_student () {
+    Student student;
+    cout << "enter student ID" << endl;
+    cin >> student.ID;
+    cout << "enter name" << endl;
+    cin >> student.Name;
+    cout << "enter date of birth" << endl;
+    student.DOB = getDate();
+    cout << "enter the number of grades" << endl;
+    int numG = 0;
+    cin >> numG;
+    student.grades.resize(numG);
+    for (int i = 0; i < numG; i++) {
+        double value = 0.0;
+        cout << "enter grade" << endl;
+        cin >> value;
+        student.grades.push_back(value);
+    }
+    return student;
+}
+
+double calcTotal (Student student) {
+    double tot = 0.0;
+    for (int i = 0; i < student.grades.size(); i++) {
+        tot += student.grades[i];
+        student.total = tot;
+    }
+//    cout << student.total << endl;
+    return tot;
+}
+
+void displayStudent () {
+    Student student = input_student();
+    student.total = calcTotal(student);
+    cout << "Student ID " << student.ID << " has a total grade " << student.total << endl;
+}
+
+Students input_students (int numS) {
+    Students student;
+    student.students.resize(numS);
+    for (int i = 0; i < numS; i++) {
+        cout << "enter student ID" << endl;
+        cin >> student.students[i].ID;
+        cout << "enter name" << endl;
+        cin >> student.students[i].Name;
+        cout << "enter date of birth" << endl;
+        student.students[i].DOB = getDate();
+        cout << "enter the number of grades" << endl;
+        int numG = 0;
+        cin >> numG;
+        for (int j = 0; j < numG; j++) {
+            double value;
+            cout << "enter grade" << endl;
+            cin >> value;
+            student.students[i].grades.push_back(value);
+        }
+    }
+    
+    return student;
+}
+
+double calcTotals (Students student, int i) {
+        double tot = 0.0;
+        for (int j = 0; j < student.students[i].grades.size(); j++) {
+            tot += student.students[i].grades[j];
+            student.students[i].total = tot;
+        }
+    return student.students[i].total;
+}
+
+void displayStudents () {
+    Students student = input_students(numS);
+    for (int j = 0; j < student.students.size(); j++) {
+        student.students[j].total = calcTotals(student, j);
+        cout << "Student ID " << student.students[j].ID << "has a total grade " << student.students[j].total << endl;
+    }
+}
+
+int* IntergralDataSet (int* Data) {
+   // vector<int>(Data);
+    cout << "how many integers are being enterred" << endl;
+    cin >> numOfVal;
+    cout << "please enter the integers" << endl;
+    for (int i = 0; i < numOfVal; i++) {
+        int data;
+        cin >> data;
+        Data[i] = data;
+    }
+    int* ptrData = &Data[0]; //Data
+    return ptrData;
+}
+
+int findMax (const int* data, int numOfVal) {
+    int Max = 0;
+    int index=0;
+    for (int i = 0; i < numOfVal; i++) {
+        cout<<data[i]<<endl;
+        if (Max < data[i]) {
+            Max = data[i]; // *(data+i);
+            index = i;
+
+        }
+        //data++;
+    }
+    
+    return index;
+}
+
+int my_strlen (const char* data) {
+    int index = 0;
+    for (int i = 0; *(data + i) != '\0'; i++) {
+        index++;
+    }
+    return index;
+}
+
+void reversed (char*  data, int n) {
+    char temp;
+    for (int i = 0; i < (n/2); i++) {
+        temp = *(data + i);
+//        cout << data[i] << endl;
+        data[i] = data[n-i-1];
+//        cout << data[i] << endl;
+//        cout << data[n-i-1] << endl;
+        data[n-i-1] = temp;
+//        cout << data[n-i-1] << endl;
+    }
+    cout << data << endl;
+}
+
+
+
+/*
+int* matrix () {
+    int rows, columns;
+    cout << "enter the number of rows ";
+    cin >> rows;
+    cout << "enter the number of columns ";
+    cin >> columns;
+    int array2D[rows][columns];
+    for (int r = 0; r < rows; r++) {
+        for (int c = 0; c < columns; c++) {
+            cin >> array2D[r][c];
+        }
+    }
+    for (int r = 0; r < rows; r++) {
+        for (int c = 0; c < columns; c++) {
+            cout << array2D[r][c];
+        }
+        cout << endl;
+    }
+    return* array2D;
+} */
